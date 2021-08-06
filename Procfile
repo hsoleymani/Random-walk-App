@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run bee_random_walk_st.py
+web: sh setup.sh && streamlit run rand_walk_all_directions.py
