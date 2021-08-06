@@ -25,25 +25,13 @@ for m in range(1,nn):
 
     # coordinates for hexagonal shape
     for i in range(1, n):
-        val = random.randint(1, 6)
-        if val == 1:
-            x[i] = x[i - 1] + numpy.sqrt(3)/2
-            y[i] = y[i - 1] + 0.5
-        elif val == 2:
-            x[i] = x[i - 1] + 0
-            y[i] = y[i - 1] + 1
-        elif val == 3:
-            x[i] = x[i - 1] - numpy.sqrt(3)/2
-            y[i] = y[i - 1] + 0.5
-        elif val == 4:
-            x[i] = x[i - 1] - numpy.sqrt(3)/2
-            y[i] = y[i - 1] - 0.5
-        elif val == 5:
-            x[i] = x[i - 1] + 0
-            y[i] = y[i - 1] - 1
-        elif val == 6:
-            x[i] = x[i - 1] + numpy.sqrt(3)/2
-            y[i] = y[i - 1] - 0.5
+        randx = random.uniform(-1, 1)
+        randy = random.choice([-1,1])
+                      
+        x[i] = x[i - 1] + randx
+        y[i] = y[i - 1] + randy*(1-randx**2)
+        
+        
     # calculate the distance in every run and store the distances
     dst.append(distance.euclidean([0,0], [x[n-1],y[n-1]]))
             
@@ -52,7 +40,7 @@ for m in range(1,nn):
 
 fig = plt.pyplot.figure()
 
-plt.pyplot. subplots_adjust(hspace = .3)
+plt.pyplot.subplots_adjust(hspace = .3)
 
 ax1 = fig.add_subplot(2,1,1)
 ax1.plot(x, y, alpha=0.8)
@@ -63,6 +51,8 @@ ax1.scatter(x, y)
 ax1.scatter(x[0], y[0], c='r', label="Start")
 ax1.scatter(x[n-1],y[n-1], c='k', label="End")
 ax1.legend(loc='upper left')
+ax1.axis('equal')
+
 
 
 ax2 = fig.add_subplot(2,1,2)
