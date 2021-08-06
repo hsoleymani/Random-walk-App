@@ -29,7 +29,7 @@ for m in range(1,nn):
         randy = random.choice([-1,1])
                       
         x[i] = x[i - 1] + randx
-        y[i] = y[i - 1] + numpy.sqrt(randy*(1-randx**2))
+        y[i] = y[i - 1] + numpy.randy*sqrt(1-randx**2)
         
         
     # calculate the distance in every run and store the distances
