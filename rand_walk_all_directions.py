@@ -13,7 +13,6 @@ st.sidebar.header('Random Walk')
 n = st.sidebar.number_input('Insert a number of steps',min_value=1, step=10)+1
 nn = st.sidebar.number_input('Insert a number of run',min_value=10, step=100)
 
-
 x = numpy.zeros(n)
 y = numpy.zeros(n)
 dst = []
@@ -28,7 +27,7 @@ for m in range(1,nn):
         randy = random.choice([-1,1])
                       
         x[i] = x[i - 1] + randx
-        y[i] = y[i - 1] + randy*(1-randx**2)
+        y[i] = y[i - 1] + randy*(numpy.sqrt((1-randx**2)))
         
         
     # calculate the distance in every run and store the distances
