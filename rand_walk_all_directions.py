@@ -13,6 +13,7 @@ st.sidebar.header('Random Walk')
 n = st.sidebar.number_input('Insert a number of steps',min_value=1, step=10)+1
 nn = st.sidebar.number_input('Insert a number of run',min_value=10, step=100)
 
+
 x = numpy.zeros(n)
 y = numpy.zeros(n)
 dst = []
