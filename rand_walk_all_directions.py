@@ -13,11 +13,10 @@ st.sidebar.header('Random Walk')
 n = st.sidebar.number_input('Insert a number of steps',min_value=1, step=10)+1
 nn = st.sidebar.number_input('Insert a number of run',min_value=10, step=100)
 
-
 x = numpy.zeros(n)
 y = numpy.zeros(n)
 dst = []
-median_dst = []
+mean_dst = []
 # looping over large numver of trials
 for m in range(1,nn):
 
@@ -33,7 +32,7 @@ for m in range(1,nn):
         
     # calculate the distance in every run and store the distances
     dst.append(distance.euclidean([0,0], [x[n-1],y[n-1]]))
-    median_dst.append(numpy.median(dst))
+    mean_dst.append(numpy.mean(dst))
 # plotting section:
 
 fig = plt.pyplot.figure()
@@ -59,10 +58,9 @@ ax2.set_ylabel('Prob Density')
 
 
 ax3 = fig.add_subplot(3,1,3)
-ax3.plot(median_dst)
+ax3.plot(mean_dst)
 ax3.set_xlabel('number of runs')
-ax3.set_ylabel('median dist')
-
+ax3.set_ylabel('Mean dist')
 
 
 st.write(fig)
