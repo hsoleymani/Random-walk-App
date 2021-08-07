@@ -45,7 +45,7 @@ for m in range(1,nn):
             y[i] = y[i - 1] - 0.5
     # calculate the distance in every run and store the distances
     dst.append(distance.euclidean([0,0], [x[n-1],y[n-1]]))
-    mean_dst.append(numpy.meant(dst))
+    mean_dst.append(numpy.mean(dst))
 
 # plotting section:
 
